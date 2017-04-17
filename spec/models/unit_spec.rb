@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Unit, type: :unit do
+RSpec.describe Unit, type: :model do
   subject { unit }
 
   let(:unit) { build(:unit) }

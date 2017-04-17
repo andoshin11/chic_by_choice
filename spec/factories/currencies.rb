@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :currency do
-    name "MyString"
-    iso_code "MyString"
+    name "円"
+    iso_code "JPY"
   end
 end
