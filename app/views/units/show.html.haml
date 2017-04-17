@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong Item:
+  = @unit.item_id
+%p
+  %strong Currency:
+  = @unit.currency_id
+%p
+  %strong Quantity:
+  = @unit.quantity
+%p
+  %strong Price:
+  = @unit.price
+%p
+  %strong Name:
+  = @unit.name
+= link_to 'Edit', edit_unit_path(@unit)
+|
+= link_to 'Back', units_path

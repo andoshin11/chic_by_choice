@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Unit:
+  = @unit_image.unit_id
+%p
+  %strong Url:
+  = @unit_image.url
+%p
+  %strong Name:
+  = @unit_image.name
+= link_to 'Edit', edit_unit_image_path(@unit_image)
+|
+= link_to 'Back', unit_images_path

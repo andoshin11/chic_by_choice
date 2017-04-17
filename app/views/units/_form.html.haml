@@ -1,0 +1,26 @@
+= form_for(unit) do |f|
+  - if unit.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(unit.errors.count, "error")
+        prohibited this unit from being saved:
+      %ul
+        - unit.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :item_id
+    = f.number_field :item_id
+  .field
+    = f.label :currency_id
+    = f.number_field :currency_id
+  .field
+    = f.label :quantity
+    = f.text_field :quantity
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit

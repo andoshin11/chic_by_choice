@@ -1,0 +1,20 @@
+= form_for(unit_image) do |f|
+  - if unit_image.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(unit_image.errors.count, "error")
+        prohibited this unit_image from being saved:
+      %ul
+        - unit_image.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :unit_id
+    = f.number_field :unit_id
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit
