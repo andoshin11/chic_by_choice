@@ -1,2 +1,3 @@
 class Item < ApplicationRecord
+  belongs_to :currency, inverse_of: :items
 end
