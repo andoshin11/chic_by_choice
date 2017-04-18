@@ -19,3 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Yarn
+/node_modules
+/yarn-error.log
