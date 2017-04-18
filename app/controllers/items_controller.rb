@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  add_breadcrumb 'Home', :root
+
   # GET /items
   # GET /items.json
   def index
@@ -10,6 +12,9 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+
+    add_breadcrumb 'Dresses', :items
+    add_breadcrumb "#{@item.name} - #{@item.summary}"
   end
 
   # GET /items/new

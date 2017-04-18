@@ -37,6 +37,29 @@
   padding-top: 100px;
 }
 
+.breadcrumb {
+  line-height: 26px;
+  background-color: transparent;
+  font-size: 12px;
+  font-family: "Futura";
+  color: #737373;
+  margin: 0 0 0 5px;
+  li {
+    a {
+      color: #737373;
+      transition: .3s;
+      &:hover {
+        text-decoration: none;
+        color: #737373;
+        opacity: .7;
+      }
+    }
+    &:before{
+      content: none !important;
+    }
+  }
+}
+
 .dress-info {
   position: relative;
   &__designer {

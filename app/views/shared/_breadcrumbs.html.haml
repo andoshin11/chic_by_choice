@@ -1,0 +1,10 @@
+- if elements.present?
+  %ul.breadcrumb
+    - elements[0..-2].each do |element|
+      %li
+        - if element.path.present?
+          = link_to element.name, element.path
+        - else
+          = element.name
+        %span.divider  > 
+    = elements.last.name
