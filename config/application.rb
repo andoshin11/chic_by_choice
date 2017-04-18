@@ -15,5 +15,11 @@ module ECSample
       g.test_framework :rspec, view_specs: false, helper_specs: true, fixture: true, integration_tool: false
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+
+    config.browserify_rails.commandline_options = [
+      '-t [ babelify --presets [ latest ] --plugins [ add-module-exports ] ]',
+      '-t vueify',
+    ]
+    Rails.application.config.assets.paths << Rails.root.join('node_modules')
   end
 end
