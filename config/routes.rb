@@ -5,4 +5,14 @@ Rails.application.routes.draw do
 
   root "items#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :api, defaults: { format: :json } do
+    resources :items, only: [] do
+      collection do
+      end
+      member do
+        get :show
+      end
+    end
+  end
 end
