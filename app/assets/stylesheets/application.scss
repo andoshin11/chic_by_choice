@@ -37,25 +37,52 @@
   padding-top: 100px;
 }
 
-.breadcrumb {
-  line-height: 26px;
-  background-color: transparent;
-  font-size: 12px;
-  font-family: "Futura";
-  color: #737373;
-  margin: 0 0 0 5px;
-  li {
-    a {
-      color: #737373;
-      transition: .3s;
-      &:hover {
-        text-decoration: none;
-        color: #737373;
-        opacity: .7;
-      }
+.breadcrumbs {
+  display: table;
+  margin-top: 10px;
+  i{
+    display: table-cell;
+    font-size: 8px;
+    line-height: 26px;
+    padding-right: 10px;
+  }
+  .back-btn {
+    font-family: "Futura Extended";
+    font-size: 14px;
+    color: black;
+    transition: .3s;
+    display: table-cell;
+    line-height: 26px;
+    &:hover {
+      color: black;
+      opacity: .7;
     }
-    &:before{
-      content: none !important;
+  }
+  ul {
+    padding-left: 0;
+    line-height: 26px;
+    background-color: transparent;
+    font-size: 12px;
+    font-family: "Futura";
+    color: #737373;
+    margin: 0 0 0 10px;
+    list-style: none;
+    li {
+      float: left;
+      .divider{
+        margin-right: 5px;
+      }
+      a {
+        color: #737373;
+        transition: .3s;
+        &:hover {
+          color: #737373;
+          opacity: .7;
+        }
+      }
+      &:before{
+        content: none !important;
+      }
     }
   }
 }
