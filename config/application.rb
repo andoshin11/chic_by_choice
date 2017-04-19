@@ -20,6 +20,5 @@ module ECSample
       '-t [ babelify --presets [ latest ] --plugins [ add-module-exports ] ]',
       '-t vueify',
     ]
-    Rails.application.config.assets.paths << Rails.root.join('node_modules')
   end
 end
