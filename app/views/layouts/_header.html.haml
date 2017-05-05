@@ -1,6 +1,20 @@
 %section.p-top-bar
-  .first-top-bar
+  .first-top-bar.header-first
     .container
+      .header-first__left
+        .call-us
+          = link_to root_path, class: "tell-number" do
+            %i.fa.fa-phone
+            %span.call-us__number 123 4567 8901
+      .header-first__right
+        .header-first__right__country
+        .header-first__right__session LOGIN | SIGN UP
+        .header-first__right__wishlist
+          %i.fa.fa-heart-o
+          0
+        .header-first__right__cart
+          %i.fa.fa-shopping-bag
+          1
   .second-top-bar
     .container
       %nav
