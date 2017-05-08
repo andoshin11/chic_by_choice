@@ -1,5 +1,5 @@
 class Unit < ApplicationRecord
-
-  validates :name, presence: true
-  validates :price, presence: true
+  belongs_to :item, inverse_of: :units
+  validates :size, presence: true
+  validates :length, presence: true
 end

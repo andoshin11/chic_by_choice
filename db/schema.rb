@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507065652) do
+ActiveRecord::Schema.define(version: 20170508022043) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id",     null: false
@@ -65,13 +65,10 @@ ActiveRecord::Schema.define(version: 20170507065652) do
 
   create_table "units", force: :cascade do |t|
     t.integer  "item_id"
-    t.integer  "currency_id"
-    t.string   "quantity"
-    t.float    "price",       default: 0.0, null: false
-    t.string   "name",                      null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.index ["currency_id"], name: "index_units_on_currency_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "size",       null: false
+    t.string   "length",     null: false
     t.index ["item_id"], name: "index_units_on_item_id"
   end
 
