@@ -9,4 +9,5 @@
     = render 'layouts/header'
     %section#body
       = yield
+  = include_gon
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

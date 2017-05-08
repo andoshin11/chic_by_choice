@@ -40,6 +40,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'breadcrumbs_on_rails'
 gem "browserify-rails"
+gem "gon"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
