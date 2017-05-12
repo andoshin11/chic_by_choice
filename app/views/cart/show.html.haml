@@ -1,2 +1,31 @@
-%h1 Cart#show
-%p Find me in app/views/cart/show.html.haml
+.container
+  .row
+    .col-md-8.cart-title
+      SHOPPING BAG
+    .col-md-4.cart-timer
+      Only 14:25 minutes left
+    .col-md-8.cart
+      .cart__header
+        Rental Period: May 04, 2017 - Free return on May 08, 2017
+      .cart__body
+        - @cart.cart_items.each do |cart_item|
+          .name= cart_item.name
+    .col-md-4.cart-price
+      .cart-price__header ORDER SUMMARY
+      .cart-price__body
+        %ul.price-list
+          %li.price-list__item
+            .price-list__label Subtotal
+            .price-list__price £235
+          %li.price-list__item
+            .price-list__label Shipping & Handling
+            .price-list__price £9.90
+          %li.price-list__item
+            .price-list__label Insurance
+            .price-list__price £4.90
+          %li.price-list__item
+            .price-list__label Return via DHL
+            .price-list__price FREE
+          %li.price-list__item
+            .price-list__label Welcome gift
+            .price-list__price - £15.00

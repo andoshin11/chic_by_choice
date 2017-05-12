@@ -107,6 +107,51 @@ $white: #fff;
   }
 }
 
+.cart {
+  &__body {
+    border: solid 2px #f4f4f4;
+  }
+  &__header {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    font-size: 13px;
+  }
+
+}
+
+.cart-price {
+  &__body {
+    border: solid 2px #f4f4f4;
+  }
+  &__header {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    text-align: center;
+    font-family: "Futura Extended";
+  }
+
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 22px;
+  font-family: "Futura Extended";
+  padding-top: 50px;
+  margin-bottom: 15px;
+}
+
+.cart-timer {
+  text-align: center;
+  font-size: 17px;
+  padding-top: 50px;
+  margin-bottom: 15px;
+}
+
 .dress-info {
   position: relative;
   &__designer {
