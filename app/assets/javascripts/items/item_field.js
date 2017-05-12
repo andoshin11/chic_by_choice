@@ -11,7 +11,8 @@ export default {
         name: null,
         price: {
           currency: null,
-        }
+        },
+        units: []
       },
       selectedDate: null,
       order: {
@@ -25,8 +26,25 @@ export default {
   methods: {
     async fetch() {
       try {
-        const { item: item } = await HTTP.get('/api/items/1');
+        const { item: item } = await HTTP.get(`/api/items/${gon.item_id}`);
         this.item = item;
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async addToCart() {
+      try {
+        await HTTP.post('/api/cart_items', {
+          unitId: 1,
+          numUnits: 1,
+          name: this.item.name,
+          price: this.item.price.hirePrice,
+          period: this.order.period,
+          eventDate: this.order.eventDate,
+          deliveryDate: this.order.deliveryDate,
+          returnDate: this.order.returnDate,
+        });
+        alert("送信されました");
       } catch (e) {
         console.error(e);
       }

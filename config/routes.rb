@@ -14,5 +14,11 @@ Rails.application.routes.draw do
         get :show
       end
     end
+
+    resources :cart_items, only: [] do
+      collection do
+        post :create
+      end
+    end
   end
 end

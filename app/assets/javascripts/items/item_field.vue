@@ -45,7 +45,7 @@
         <div class="order__info__delivery">Delivery Date : {{ order.deliveryDate }}</div>
         <div class="order__info__return">Return Date : {{ order.returnDate }}</div>
       </div>
-      <div class="order__submit">
+      <div class="order__submit" @click="addToCart()">
         HIRE <i class="fa fa-angle-right"></i>
       </div>
     </div>

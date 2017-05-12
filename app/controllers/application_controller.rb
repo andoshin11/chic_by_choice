@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
       Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound
       # 新しいカートを作成する(DBも書き込む)
-      cart = Cart.create
+      cart = Cart.create(user_id: 1)
       session[:cart_id] = cart.id
       cart
     end

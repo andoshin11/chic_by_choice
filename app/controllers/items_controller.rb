@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
 
     add_breadcrumb 'Dresses', :items
     add_breadcrumb "#{@item.name} - #{@item.summary}"
+    gon.item_id = params[:id]
   end
 
   # GET /items/new

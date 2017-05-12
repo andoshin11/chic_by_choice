@@ -11,7 +11,7 @@ json.item do
   json.set! :units do
     json.array!(@units) do |key, value|
       json.set! :size, key
-      json.set! :unit, value.map{|v| {id: v[:id], length: v[:length]}}
+      json.set! :units, value.map{|v| {id: v[:id], length: v[:length]}}
     end
   end
 end
