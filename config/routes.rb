@@ -19,6 +19,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :carts, only: [] do
+      collection do
+        get :show
+      end
+    end
+
     resources :cart_items, only: [] do
       collection do
         post :create
