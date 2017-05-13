@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'cart/show'
+  get 'cart' => "carts#show"
 
   get 'cart/edit'
 
