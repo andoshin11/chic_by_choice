@@ -1,3 +1,86 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.filter {
+  border-top: 1px solid #d4d4d4;
+  padding-bottom: 15px;
+  &.without-border {
+    border-top: 1px solid transparent;
+  }
+  &__body {
+    height: 0;
+    transition: .5s;
+    overflow: hidden;
+    padding: 0 17px;
+    &__input {
+      width: 70%;
+      float: left;
+      height: 32px;
+    }
+    &__submit {
+      width: 20%;
+      text-align: center;
+      background-color: #414141;
+      height: 32px;
+      line-height: 32px;
+      float: left;
+      margin-left: 10%;
+      color: #fff;
+      &:hover {
+        opacity: .7;
+      }
+    }
+    &.active {
+      height: auto;
+      padding: 10px 17px;
+    }
+  }
+  &__header{
+    cursor: pointer;
+    padding: 25px 7px 0;
+    i {
+      font-size: 16px;
+      transition: .3s;
+      margin-right: 10px;
+    }
+    &.active {
+      i {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  &.for-size {
+    background-color: whitesmoke;
+    .filter__body__button {
+      background-color: #fff;
+      height: 22px;
+      line-height: 22px;
+      border: solid 1px rgb(210, 210, 210);
+      float: left;
+      width: 30%;
+      margin-left: 5%;
+      text-align: center;
+      box-sizing: border;
+      margin-bottom: 4px;
+      transition: .3s;
+      &.without-margin {
+        margin-left: 0;
+      }
+      &:hover {
+        background-color: #bd1f54;
+        border: solid 1px #bd1f54;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.index-header {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 10px 15px 7px;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 12px;
+}

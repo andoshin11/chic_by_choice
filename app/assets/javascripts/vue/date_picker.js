@@ -28,6 +28,7 @@ export default {
       deliveryDate: null,
       eventDate: null,
       dates: [],
+      indexDate: null,
     };
   },
   watch: {
@@ -97,6 +98,10 @@ export default {
     pickDate (date) {
       this.selectedDate = date.format("YYYY/MM/DD");
       this.show = false;
+    },
+    pickDateForIndex (date) {
+      this.setDates();
+      this.indexDate = this.deliveryDate.format("YYYY/MM/DD") + " - " + this.returnDate.format("YYYY/MM/DD");
     },
     resetSchedule() {
       this.deliveryDate = null;

@@ -2,7 +2,7 @@
   <div class="datetime-picker order__input where-date">
     <input
       type="text"
-      @click="show = !show" v-model="selectedDate" @keyup.up="changeYear(1)" @keyup.down="changeYear(-1)" @keyup.left="changeMonth(-1)" @keyup.right="changeMonth(1)" placeholder="select event date here">
+      @click="show = !show" :value="indexDate" @keyup.up="changeYear(1)" @keyup.down="changeYear(-1)" @keyup.left="changeMonth(-1)" @keyup.right="changeMonth(1)" placeholder="sup">
     <div class="picker-wrap datepicker-pop" v-show="show">
       <div class="datepicker-pop__header">
         <div class="datepicker-pop__header__title">Click on your event date</div>
@@ -16,13 +16,13 @@
               <span class="btn-next month-selector__next" @click="changeMonth(1)">&gt;</span>
             </th>
           </tr>
-          <tr class="date-days calendar__header__days">
+          <tr class="date-days calendar__header__days datepicker__days">
             <th v-for="day in days">{{day}}</th>
           </tr>
         </thead>
         <tbody class="calendar__body">
           <tr v-for="week in weeks">
-              <td v-for="date in week" @click="pickDate(date.date)" class="datepicker__day" :class="{currentMonth: date.isCurrentMonth, returnDate: date.isReturnDate, deliveryDate: date.isDeliveryDate, hiringPeriod: date.isHiringPeriod}" @mouseenter="calcSchedule(date.date)" @mouseleave="resetSchedule()">
+              <td v-for="date in week" @click="pickDateForIndex(date.date)" class="datepicker__day" :class="{currentMonth: date.isCurrentMonth, returnDate: date.isReturnDate, deliveryDate: date.isDeliveryDate, hiringPeriod: date.isHiringPeriod}" @mouseenter="calcSchedule(date.date)" @mouseleave="resetSchedule()">
                   {{ date.dateString }}
               </td>
           </tr>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-  import datePicker from './date_picker';
+  import datePicker from './../vue/date_picker.js';
 
   export default datePicker;
 </script>

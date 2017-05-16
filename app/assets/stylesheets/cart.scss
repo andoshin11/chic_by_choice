@@ -1,3 +1,118 @@
 // Place all the styles related to the Cart controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.cart {
+  &__body {
+    border: solid 2px #f4f4f4;
+    padding: 10px;
+  }
+  &__header {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    font-size: 13px;
+  }
+}
+
+.cart-item {
+  height: 155px;
+  .cart-item__info {
+    padding-top: 10px;
+  }
+  &__name {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 59px;
+    font-family: "Futura Extended";
+  }
+  &__remove {
+    font-size: 12px;
+    text-decoration: underline;
+  }
+  &__status {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 37px;
+    thead {
+      font-family: "Futura Extended";
+
+    }
+  }
+}
+
+.cart-price {
+  margin-bottom: 10px;
+  &__body {
+    border-left: solid 2px #f4f4f4;
+    border-right: solid 2px #f4f4f4;
+  }
+  &__footer {
+    font-family: "Futura Extended";
+    font-size: 14px;
+    line-height: 24px;
+    border-left: solid 2px #f4f4f4;
+    border-right: solid 2px #f4f4f4;
+    border-bottom: solid 2px #f4f4f4;
+    height: 44px;
+    &__label {
+      float: left;
+      width: calc(80% - 15px);
+      margin-left: 15px;
+      border-top: solid 2px #f4f4f4;
+      padding-top: 10px;
+    }
+    &__price {
+      float: left;
+      width: calc(20% - 15px);
+      margin-right: 15px;
+      border-top: solid 2px #f4f4f4;
+      padding-top: 10px;
+    }
+  }
+  &__header {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    text-align: center;
+    font-family: "Futura Extended";
+  }
+}
+
+.cart-next {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  line-height: 3;
+  background-color: #000;
+  color: white;
+  font-family: 'Futura Extended';
+  cursor: pointer;
+  transition: .3s;
+  letter-spacing: 1px;
+  width: calc(100% - 30px);
+  margin-left: 15px;
+  &:hover {
+    opacity: .7;
+    text-decoration: underline;
+  }
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 22px;
+  font-family: "Futura Extended";
+  padding-top: 50px;
+  margin-bottom: 15px;
+}
+
+.cart-timer {
+  text-align: center;
+  font-size: 17px;
+  padding-top: 50px;
+  margin-bottom: 15px;
+}

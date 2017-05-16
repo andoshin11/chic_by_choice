@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-
     add_breadcrumb 'Dresses', :items
     add_breadcrumb "#{@item.name} - #{@item.summary}"
     gon.item_id = params[:id]
