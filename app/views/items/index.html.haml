@@ -18,11 +18,10 @@
                 %i.fa.fa-heart-o
               .dress-link
               .dress__images
-              %a.dress__name= item.name
-              %a.dress__summary= item.summary
+              %a.dress__name= item.designer.name
+              %a.dress__summary= item.name
               .dress-link
                 %span.hire-button
                   = item.retail_price.to_i
                   %br.rental-price
                     = item.hire_price.to_i
-

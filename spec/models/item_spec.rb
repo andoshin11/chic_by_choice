@@ -9,4 +9,12 @@ RSpec.describe Item, type: :model do
     it { is_expected.to be_valid }
   end
 
+  describe '#name' do
+    context 'when nil' do
+      let(:item) { build(:item, name: nil) }
+
+      it { is_expected.to be_invalid }
+    end
+  end
+
 end
