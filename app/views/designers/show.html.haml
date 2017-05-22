@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @designer.name
+
+= link_to 'Edit', edit_designer_path(@designer)
+\|
+= link_to 'Back', designers_path

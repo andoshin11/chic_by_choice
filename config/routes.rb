@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :designers
   get 'cart' => "carts#show"
 
-  get 'cart/edit'
+  get 'cart/edit' => "carts#edit"
 
   resources :unit_images
   resources :units
