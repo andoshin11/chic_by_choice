@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :items, only: [] do
       collection do
+        get :index
       end
       member do
         get :show
