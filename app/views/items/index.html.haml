@@ -14,14 +14,18 @@
         .row
           - @items.each do |item|
             .dress.col-md-4
-              %span.fav-dress-btn.events.favourite-dress
+              %span.dress__fav
                 %i.fa.fa-heart-o
-              .dress-link
+              .dress__sizes
+                .dress__sizes__size 6
+                .dress__sizes__size 8
+                .dress__sizes__size 10
               .dress__images
-              %a.dress__name= item.designer.name
-              %a.dress__summary= item.name
-              .dress-link
-                %span.hire-button
-                  = item.retail_price.to_i
-                  %br.rental-price
-                    = item.hire_price.to_i
+                %img.dress__images__image{src: "#{item.images.first.url if item.images.present?}"}
+              %a.dress__designer.is-bold= item.designer.name
+              %a.dress__name= item.name
+              .dress__price.is-bold
+                %span.dress__price__hire
+                  Hire £ #{item.hire_price.to_i}
+                %span.dress__price__retail
+                  Retail £ #{item.retail_price.to_i}
