@@ -6,26 +6,3 @@
         %span.divider >
       %li Dresses
 #index-field
-%section.dresses
-  .container
-    .row
-      %section.col-md-3
-      %section.col-md-9
-        .row
-          - @items.each do |item|
-            .dress.col-md-4
-              %span.dress__fav
-                %i.fa.fa-heart-o
-              .dress__sizes
-                .dress__sizes__size 6
-                .dress__sizes__size 8
-                .dress__sizes__size 10
-              .dress__images
-                %img.dress__images__image{src: "#{item.images.first.url if item.images.present?}"}
-              %a.dress__designer.is-bold= item.designer.name
-              %a.dress__name= item.name
-              .dress__price.is-bold
-                %span.dress__price__hire
-                  Hire £ #{item.hire_price.to_i}
-                %span.dress__price__retail
-                  Retail £ #{item.retail_price.to_i}

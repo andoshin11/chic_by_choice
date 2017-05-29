@@ -144,6 +144,7 @@ input[type="checkbox"] {
   // transition: opacity 300ms linear;
   box-sizing: border-box;
   border: 1px solid transparent;
+  cursor: pointer;
   &__fav {
     position: absolute;
     right: 23px;
@@ -164,6 +165,13 @@ input[type="checkbox"] {
     min-height: 466px;
     &__image {
       width: 100%;
+      &.main {
+        transition: .3s;
+      }
+      &.sub {
+        display: none;
+        transition: .3s;
+      }
     }
   }
   &__name {
@@ -202,6 +210,16 @@ input[type="checkbox"] {
   }
   &:hover {
     border: 1px solid $light-grey;
+    .dress__images {
+      &__image {
+        &.main {
+          display: none;
+        }
+        &.sub {
+          display: block;
+        }
+      }
+    }
     .dress__sizes {
       display: block;
       position: absolute;

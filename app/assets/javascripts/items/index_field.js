@@ -7,11 +7,13 @@ export default {
   },
   data() {
     return {
+      items: [],
       expandColour: false,
       expandPrice: false,
       expandLength: false,
       expandSize: false,
       expandTrends: false,
+      openedFilter: null,
       colourFilter: [],
       lengthFilter: [],
       trendsFilter: [],
@@ -39,11 +41,25 @@ export default {
   methods: {
     async fetch() {
       try {
+        const { items: items } = await HTTP.get('/api/items');
+        this.items = items;
+        console.log(items);
       } catch (e) {
         console.error(e);
       }
     },
+    toggleFilter(num) {
+      if (this.openedFilter == num) {
+        this.openedFilter = null;
+      } else {
+        this.openedFilter = num;
+      }
+    },
+    itemLink(item) {
+      return `/items/${item.id}`
+    }
   },
   mounted() {
+    this.fetch();
   },
 };

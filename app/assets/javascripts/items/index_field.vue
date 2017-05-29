@@ -8,23 +8,12 @@
     </div>
     <div class="col-md-3 index-sidebar">
       <div class="index-sidebar__header">Filter <span>Clear all</span></div>
-      <div class="filter for-date without-border">      
+      <div class="filter for-date without-border">
         <datePicker :period="4"/>
       </div>
-      <div class="filter for-size without-border">
-        <div class="filter__header" @click="expandSize = !expandSize" :class="{active: expandSize}"><i class="fa fa-angle-right"></i> SIZE</div>
-        <div class="filter__body" :class="{active: expandSize}">
-          <div class="filter__body__button without-margin">6 UK</div>
-          <div class="filter__body__button">8 UK</div>
-          <div class="filter__body__button">10 UK</div>
-          <div class="filter__body__button without-margin">12 UK</div>
-          <div class="filter__body__button">14 UK</div>
-          <div class="filter__body__button">16 UK</div>
-        </div>
-      </div>
-      <div class="filter for-price without-border">
-        <div class="filter__header" @click="expandPrice = !expandPrice" :class="{active: expandPrice}"><i class="fa fa-angle-right"></i> PRICE</div>
-        <div class="filter__body" :class="{active: expandPrice}">
+      <div class="filter for-price">
+        <div class="filter__header is-bold" @click="toggleFilter(1)" :class="{active: openedFilter == 1}">Price<i class="fa fa-angle-down"></i></div>
+        <div class="filter__body" :class="{active: openedFilter == 1}">
           <div>
             <input type="checkbox" value="0" v-model="priceFilter">
             <label>under £60</label>
@@ -44,8 +33,8 @@
         </div>
       </div>
       <div class="filter for-length">
-        <div class="filter__header" @click="expandLength = !expandLength" :class="{active: expandLength}"><i class="fa fa-angle-right"></i> LENGTH</div>
-        <div class="filter__body" :class="{active: expandLength}">
+        <div class="filter__header is-bold" @click="toggleFilter(2)" :class="{active: openedFilter == 2}">Length<i class="fa fa-angle-down"></i></div>
+        <div class="filter__body" :class="{active: openedFilter == 2}">
           <div>
             <input type="checkbox" value="0" v-model="lengthFilter">
             <label>Floor length</label>
@@ -64,179 +53,26 @@
           </div>
         </div>
       </div>
-      <div class="filter for-colour">
-        <div class="filter__header" @click="expandColour = !expandColour" :class="{active: expandColour}"><i class="fa fa-angle-right"></i> COLOUR</div>
-        <div class="filter__body" :class="{active: expandColour}">
-          <div>
-            <input type="checkbox" value="0" v-model="colourFilter">
-            <label>Black</label>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <a class="dress col-md-4" v-for="item in items" :href="itemLink(item)">
+          <span class="dress__fav"><i class="fa fa-heart-o"></i></span>
+          <div class="dress__sizes">
+            <div class="dress__sizes__size">6</div>
+            <div class="dress__sizes__size">8</div>
+            <div class="dress__sizes__size">10</div>
           </div>
-          <div>
-            <input type="checkbox" value="1" v-model="colourFilter">
-            <label>Blue</label>
+          <div class="dress__images">
+            <img :src="image.url" alt="" class="dress__images__image" :class="[ image.category == 1 ? 'main' : 'sub' ]" v-for="image in item.images">
           </div>
-          <div>
-            <input type="checkbox" value="2" v-model="colourFilter">
-            <label>Brown</label>
+          <a href="#" class="dress__designer is-bold">{{ item.designer.name }}</a>
+          <a href="#" class="dress__name">{{ item.name }}</a>
+          <div class="dress__price is-bold">
+            <span class="dress__price__hire">Hire £ {{ item.hirePrice }}</span>
+            <span class="dress__price__retail">Hire £ {{ item.retailPrice }}</span>
           </div>
-          <div>
-            <input type="checkbox" value="3" v-model="colourFilter">
-            <label>Burgundy</label>
-          </div>
-          <div>
-            <input type="checkbox" value="4" v-model="colourFilter">
-            <label>Gold</label>
-          </div>
-          <div>
-            <input type="checkbox" value="5" v-model="colourFilter">
-            <label>Green</label>
-          </div>
-          <div>
-            <input type="checkbox" value="6" v-model="colourFilter">
-            <label>Grey</label>
-          </div>
-          <div>
-            <input type="checkbox" value="7" v-model="colourFilter">
-            <label>Metallic</label>
-          </div>
-          <div>
-            <input type="checkbox" value="8" v-model="colourFilter">
-            <label>Nude</label>
-          </div>
-          <div>
-            <input type="checkbox" value="9" v-model="colourFilter">
-            <label>Orange</label>
-          </div>
-          <div>
-            <input type="checkbox" value="10" v-model="colourFilter">
-            <label>Pink</label>
-          </div>
-          <div>
-            <input type="checkbox" value="11" v-model="colourFilter">
-            <label>Purple</label>
-          </div>
-          <div>
-            <input type="checkbox" value="12" v-model="colourFilter">
-            <label>Red</label>
-          </div>
-          <div>
-            <input type="checkbox" value="13" v-model="colourFilter">
-            <label>Silver</label>
-          </div>
-          <div>
-            <input type="checkbox" value="14" v-model="colourFilter">
-            <label>Sparkly</label>
-          </div>
-          <div>
-            <input type="checkbox" value="15" v-model="colourFilter">
-            <label>White</label>
-          </div>
-          <div>
-            <input type="checkbox" value="16" v-model="colourFilter">
-            <label>Yellow</label>
-          </div>
-        </div>
-      </div>
-      <div class="filter for-trends">
-        <div class="filter__header" @click="expandTrends = !expandTrends" :class="{active: expandTrends}"><i class="fa fa-angle-right"></i> TRENDS</div>
-        <div class="filter__body" :class="{active: expandTrends}">
-          <div>
-            <input type="checkbox" value="0" v-model="trendsFilter">
-            <label>A-line</label>
-          </div>
-          <div>
-            <input type="checkbox" value="1" v-model="trendsFilter">
-            <label>Artistic</label>
-          </div>
-          <div>
-            <input type="checkbox" value="2" v-model="trendsFilter">
-            <label>Black and white</label>
-          </div>
-          <div>
-            <input type="checkbox" value="3" v-model="trendsFilter">
-            <label>Bodycon</label>
-          </div>
-          <div>
-            <input type="checkbox" value="4" v-model="trendsFilter">
-            <label>Cut out</label>
-          </div>
-          <div>
-            <input type="checkbox" value="5" v-model="trendsFilter">
-            <label>Embroidery</label>
-          </div>
-          <div>
-            <input type="checkbox" value="6" v-model="trendsFilter">
-            <label>Floral</label>
-          </div>
-          <div>
-            <input type="checkbox" value="7" v-model="trendsFilter">
-            <label>Fringe</label>
-          </div>
-          <div>
-            <input type="checkbox" value="8" v-model="trendsFilter">
-            <label>Illusion neck line</label>
-          </div>
-          <div>
-            <input type="checkbox" value="9" v-model="trendsFilter">
-            <label>Lace</label>
-          </div>
-          <div>
-            <input type="checkbox" value="10" v-model="trendsFilter">
-            <label>Little black dress</label>
-          </div>
-          <div>
-            <input type="checkbox" value="11" v-model="trendsFilter">
-            <label>Maxi</label>
-          </div>
-          <div>
-            <input type="checkbox" value="12" v-model="trendsFilter">
-            <label>Metallic</label>
-          </div>
-          <div>
-            <input type="checkbox" value="13" v-model="trendsFilter">
-            <label>Minimalism</label>
-          </div>
-          <div>
-            <input type="checkbox" value="14" v-model="trendsFilter">
-            <label>Most popular</label>
-          </div>
-          <div>
-            <input type="checkbox" value="15" v-model="trendsFilter">
-            <label>Off shoulder</label>
-          </div>
-          <div>
-            <input type="checkbox" value="16" v-model="trendsFilter">
-            <label>Open back</label>
-          </div>
-          <div>
-            <input type="checkbox" value="17" v-model="trendsFilter">
-            <label>Orange</label>
-          </div>
-          <div>
-            <input type="checkbox" value="18" v-model="trendsFilter">
-            <label>Pastel</label>
-          </div>
-          <div>
-            <input type="checkbox" value="19" v-model="trendsFilter">
-            <label>Ruffle</label>
-          </div>
-          <div>
-            <input type="checkbox" value="20" v-model="trendsFilter">
-            <label>Sequin</label>
-          </div>
-          <div>
-            <input type="checkbox" value="21" v-model="trendsFilter">
-            <label>Sheer</label>
-          </div>
-          <div>
-            <input type="checkbox" value="22" v-model="trendsFilter">
-            <label>Top rated</label>
-          </div>
-          <div>
-            <input type="checkbox" value="23" v-model="trendsFilter">
-            <label>Velvet</label>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
