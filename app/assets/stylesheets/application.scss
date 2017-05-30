@@ -130,6 +130,42 @@ input[type="checkbox"] {
   }
 }
 
+.carousel {
+  &__body {
+    width: 90%;
+    float: left;
+    overflow: hidden;
+  }
+  &__image {
+    float: left;
+    width: 50%;
+    img {
+      display: block;
+      margin: auto;
+      width: 100%;
+    }
+  }
+  &__images {
+    list-style: none;
+    padding-left: 0;
+    width: 200%;
+    position: relative;
+    transition: all .5s ease-in-out;
+    &.slideRight {
+      // left: -100%;
+      transform: translate(-50%, 0px);
+    }
+  }
+  &__nav {
+    width: 5%;
+    font-size: 28px;
+    font-weight: bold;
+    float: left;
+    line-height: 678px;
+    cursor: pointer;
+  }
+}
+
 .copyright {
   font-size: 11px;
   text-align: center;
@@ -290,6 +326,20 @@ input[type="checkbox"] {
 }
 
 .dress-note {
+}
+
+.dress-thumbnails {
+  list-style: none;
+  margin-top: 20px;
+  &__thumbnail {
+    cursor: pointer;
+    width: 60px;
+    margin-bottom: 10px;
+    margin-left: calc(100% - 60px);
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .header-first {
@@ -466,7 +516,7 @@ input[type="checkbox"] {
     text-align: center;
     font-size: 15px;
     line-height: 3;
-    background-color: #bd1f54;
+    background-color: black;
     color: white;
     font-family: 'Futura Extended';
     cursor: pointer;

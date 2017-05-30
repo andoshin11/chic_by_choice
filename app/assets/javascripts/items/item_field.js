@@ -1,5 +1,6 @@
 import HTTP from './../http';
 import datePicker from './../vue/date_picker.vue'
+import $ from 'jQuery';
 
 export default {
   components: {
@@ -20,7 +21,8 @@ export default {
         eventDate: null,
         deliveryDate: null,
         returnDate: null,
-      }
+      },
+      slideRight: false,
     };
   },
   methods: {
@@ -49,6 +51,9 @@ export default {
         console.error(e);
       }
     },
+    toggleSlide(image){
+      this.slideRight = image.category==1 ? false : true;
+    }
   },
   watch: {
   },
