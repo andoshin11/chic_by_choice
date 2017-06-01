@@ -1,6 +1,5 @@
 import HTTP from './../http';
 import datePicker from './../vue/date_picker.vue'
-import $ from 'jQuery';
 
 export default {
   components: {
@@ -13,7 +12,10 @@ export default {
         price: {
           currency: null,
         },
-        units: []
+        units: [],
+        designer: {
+          name: null,
+        }
       },
       selectedDate: null,
       order: {

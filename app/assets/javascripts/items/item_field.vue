@@ -13,7 +13,7 @@
         <div class="carousel__body">
           <ul class="carousel__images" :class="{slideRight: slideRight}">
             <li class="carousel__image" v-for="image in item.images">
-              <img :src="image.url" alt="">
+              <img :src="image.url" alt="item.name">
             </li>
           </ul>
         </div>

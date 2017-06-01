@@ -64,6 +64,9 @@ input[type="checkbox"] {
   font-family: "Futura Extended";
   font-weight: bold;
 }
+.padding-r-60 {
+  padding-right: 60px;
+}
 
 .breadcrumbs {
   display: table;
@@ -470,16 +473,16 @@ input[type="checkbox"] {
         transition: .3s;
         margin-bottom: 11px;
         &.isSelected {
-          background-color: $red;
-          border: solid 1px $red;
+          background-color: black;
+          border: solid 1px black;
           color: $white;
         }
         &:first-child {
           margin-right: 6%;
         }
         &:hover {
-          background-color: #bd1f54;
-          border-color: #bd1f54;
+          background-color: black;
+          border-color: black;
           color: white;
         }
       }
