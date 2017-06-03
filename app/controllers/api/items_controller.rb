@@ -6,7 +6,8 @@ class Api::ItemsController < Api::AbstractController
   end
 
   def show
-    @units = @item.units.group_by{|i| i.size}
+    # @units = @item.units.group_by{|i| i.size}
+    @units = @item.units
   end
 
   private

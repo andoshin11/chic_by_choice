@@ -41,9 +41,21 @@
       </div>
       <div class="dress-order order">
         <div class="order__label">1. SIZE</div>
-        <div class="order__input where-size">
-          <div class="order__input__option"></div>
-          <div class="order__input__option"></div>
+        <div class="order__size">
+          <select class="order__input where-size" v-model="primaryUnit">
+            <option value="null">Select your option</option>
+            <option class="order__input__option" :value="unit.id" v-for="unit in item.units">{{ unit.size }} {{ unit.length }}</option>
+          </select>
+        </div>
+        <div class="order__size" v-if="!selectSeconday">
+          <span>Need Free Backup Size?</span>
+          <i class="fa fa-plus-circle" @click="selectSeconday = true"></i>
+        </div>
+        <div class="order__size" v-if="selectSeconday">
+          <select class="order__input where-size" v-model="secondaryUnit">
+            <option value="null">Select your option</option>
+            <option class="order__input__option" :value="unit.id" v-for="unit in item.units">{{ unit.size }} {{ unit.length }}</option>
+          </select>
         </div>
         <a href="" class="order__guide where-size">SIZE GUIDE</a>
         <div class="order__label">2. HIRE PERIOD</div>
@@ -58,10 +70,11 @@
         </div>
         <div class="order__label">YOUR ORDER</div>
         <div class="order__info">
-          <div class="order__info__designer">{{ item.name }}</div>
-          <div class="order__info__name">{{ item.summary }}</div>
-          <div class="order__info__size"></div>
-          <div class="order__info__period">{{ order.period }} days</div>
+          <div class="order__info__designer"> Designer: {{ item.designer.name }}</div>
+          <div class="order__info__name">Dress: {{ item.name }}</div>
+          <div class="order__info__size">Primary Size: {{ primarySize }}</div>
+          <div class="order__info__size" v-if="secondarySize">Backup Size: {{ secondarySize }}</div>
+          <div class="order__info__period">Rental Days: {{ order.period }} days</div>
           <div class="order__info__event">Event Date : {{ order.eventDate }}</div>
           <div class="order__info__delivery">Delivery Date : {{ order.deliveryDate }}</div>
           <div class="order__info__return">Return Date : {{ order.returnDate }}</div>

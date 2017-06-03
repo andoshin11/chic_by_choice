@@ -12,9 +12,11 @@ json.item do
     json.set! :name, @item.designer.name
   end
   json.set! :units do
-    json.array!(@units) do |key, value|
-      json.set! :size, key
-      json.set! :units, value.map{|v| {id: v[:id], length: v[:length]}}
+    json.array!(@units) do |unit|
+      json.(
+        unit,
+        :id, :size, :length
+      )
     end
   end
   json.images do

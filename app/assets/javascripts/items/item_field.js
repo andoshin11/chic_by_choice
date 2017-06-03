@@ -5,6 +5,24 @@ export default {
   components: {
     datePicker,
   },
+  computed: {
+    primarySize() {
+      const unit = this.item.units.filter(x => x.id == this.primaryUnit)[0];
+      if (unit) {
+        return unit.size + unit.length;
+      } else {
+        return null;
+      }
+    },
+    secondarySize() {
+      const unit = this.item.units.filter(x => x.id == this.secondaryUnit)[0];
+      if (unit) {
+        return unit.size + unit.length;
+      } else {
+        return null;
+      }
+    }
+  },
   data() {
     return {
       item: {
@@ -25,6 +43,9 @@ export default {
         returnDate: null,
       },
       slideRight: false,
+      primaryUnit: null,
+      secondaryUnit: null,
+      selectSeconday: false,
     };
   },
   methods: {

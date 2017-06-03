@@ -503,6 +503,14 @@ input[type="checkbox"] {
         cursor: pointer;
       }
     }
+    &.where-size {
+      background-color: white;
+      border-radius: 0px !important;
+      width: 100%;
+      height: 32px;
+      -webkit-appearance: none;
+      padding: 0 5px;
+    }
   }
   &__label {
     font-family: "Futura";
@@ -512,6 +520,27 @@ input[type="checkbox"] {
     letter-spacing: 1px;
     &.where-info{
       font-family: "Futura Extended";
+    }
+  }
+  &__size {
+    height: 32px;
+    margin-bottom: 10px;
+    line-height: 32px;
+    i {
+      text-align: center;
+      display: block;
+      font-size: 20px;
+      line-height: 22px;
+      transition: .3s;
+      cursor: pointer;
+      &:hover {
+        opacity: .7;
+      }
+    }
+    span {
+      display: block;
+      text-align: center;
+      line-height: 1.5;
     }
   }
   &__submit {
@@ -635,7 +664,9 @@ input[type="checkbox"] {
   width: 100%;
   font-size: 13px;
   &__header {
-    &__days {}
+    &__days {
+      color: $red;
+    }
     tr {
       th {
 
