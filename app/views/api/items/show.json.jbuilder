@@ -3,6 +3,7 @@ json.item do
   json.set! :name, @item.name
   json.set! :detail, @item.detail
   json.set! :price do
+    json.set! :currency_id, @item.currency.id
     json.set! :currency, @item.currency.name
     json.set! :retail_price, @item.retail_price
     json.set! :hire_price, @item.hire_price

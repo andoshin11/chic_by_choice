@@ -42,7 +42,7 @@
       <div class="dress-order order">
         <div class="order__label">1. SIZE</div>
         <div class="order__size">
-          <select class="order__input where-size" v-model="primaryUnit">
+          <select class="order__input where-size" v-model="primaryUnitId">
             <option value="null">Select your option</option>
             <option class="order__input__option" :value="unit.id" v-for="unit in item.units">{{ unit.size }} {{ unit.length }}</option>
           </select>
@@ -52,7 +52,7 @@
           <i class="fa fa-plus-circle" @click="selectSeconday = true"></i>
         </div>
         <div class="order__size" v-if="selectSeconday">
-          <select class="order__input where-size" v-model="secondaryUnit">
+          <select class="order__input where-size" v-model="secondaryUnitId">
             <option value="null">Select your option</option>
             <option class="order__input__option" :value="unit.id" v-for="unit in item.units">{{ unit.size }} {{ unit.length }}</option>
           </select>
@@ -72,8 +72,8 @@
         <div class="order__info">
           <div class="order__info__designer"> Designer: {{ item.designer.name }}</div>
           <div class="order__info__name">Dress: {{ item.name }}</div>
-          <div class="order__info__size">Primary Size: {{ primarySize }}</div>
-          <div class="order__info__size" v-if="secondarySize">Backup Size: {{ secondarySize }}</div>
+          <div class="order__info__size">Primary Size: {{ primaryUnit.size }} {{ primaryUnit.length }}</div>
+          <div class="order__info__size" v-if="secondarySize">Backup Size: {{ secondaryUnit.size }} {{ secondaryUnit.length }}</div>
           <div class="order__info__period">Rental Days: {{ order.period }} days</div>
           <div class="order__info__event">Event Date : {{ order.eventDate }}</div>
           <div class="order__info__delivery">Delivery Date : {{ order.deliveryDate }}</div>

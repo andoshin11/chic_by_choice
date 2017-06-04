@@ -6,21 +6,13 @@ export default {
     datePicker,
   },
   computed: {
-    primarySize() {
-      const unit = this.item.units.filter(x => x.id == this.primaryUnit)[0];
-      if (unit) {
-        return unit.size + unit.length;
-      } else {
-        return null;
-      }
+    primaryUnit() {
+      const unit = this.item.units.filter(x => x.id == this.primaryUnitId)[0];
+      return unit ? unit : {size: null, length: null};
     },
-    secondarySize() {
-      const unit = this.item.units.filter(x => x.id == this.secondaryUnit)[0];
-      if (unit) {
-        return unit.size + unit.length;
-      } else {
-        return null;
-      }
+    secondaryUnit() {
+      const unit = this.item.units.filter(x => x.id == this.secondaryUnitId)[0];
+      return unit ? unit : {size: null, length: null};
     }
   },
   data() {
@@ -43,8 +35,8 @@ export default {
         returnDate: null,
       },
       slideRight: false,
-      primaryUnit: null,
-      secondaryUnit: null,
+      primaryUnitId: null,
+      secondaryUnitId: null,
       selectSeconday: false,
     };
   },
@@ -60,14 +52,16 @@ export default {
     async addToCart() {
       try {
         await HTTP.post('/api/cart_items', {
-          unitId: 1,
-          numUnits: 1,
-          name: this.item.name,
+          primaryUnit: this.primaryUnit,
+          secondaryUnit: this.secondaryUnit,
           price: this.item.price.hirePrice,
+          currencyId: this.item.price.currencyId,
           period: this.order.period,
           eventDate: this.order.eventDate,
           deliveryDate: this.order.deliveryDate,
           returnDate: this.order.returnDate,
+          designerName: this.item.designer.name,
+          itemName: this.item.name,
         });
         alert("送信されました");
       } catch (e) {
