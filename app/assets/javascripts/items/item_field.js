@@ -13,6 +13,9 @@ export default {
     secondaryUnit() {
       const unit = this.item.units.filter(x => x.id == this.secondaryUnitId)[0];
       return unit ? unit : {size: null, length: null};
+    },
+    dataValid() {
+      return this.primaryUnit && this.order.eventDate && this.order.deliveryDate && this.order.returnDate
     }
   },
   data() {
@@ -51,19 +54,23 @@ export default {
     },
     async addToCart() {
       try {
-        await HTTP.post('/api/cart_items', {
-          primaryUnit: this.primaryUnit,
-          secondaryUnit: this.secondaryUnit,
-          price: this.item.price.hirePrice,
-          currencyId: this.item.price.currencyId,
-          period: this.order.period,
-          eventDate: this.order.eventDate,
-          deliveryDate: this.order.deliveryDate,
-          returnDate: this.order.returnDate,
-          designerName: this.item.designer.name,
-          itemName: this.item.name,
-        });
-        alert("送信されました");
+        if (this.dataValid){
+          await HTTP.post('/api/cart_items', {
+            primaryUnit: this.primaryUnit,
+            secondaryUnit: this.secondaryUnit,
+            price: this.item.price.hirePrice,
+            currencyId: this.item.price.currencyId,
+            period: this.order.period,
+            eventDate: this.order.eventDate,
+            deliveryDate: this.order.deliveryDate,
+            returnDate: this.order.returnDate,
+            designerName: this.item.designer.name,
+            itemName: this.item.name,
+          });
+          alert("Your order was added to the cart!");
+        } else {
+          alert("Please make sure your Primary Size and Event Date info is properly selected.");
+        }
       } catch (e) {
         console.error(e);
       }
