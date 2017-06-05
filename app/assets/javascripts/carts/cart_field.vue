@@ -7,8 +7,11 @@
         <div class="cart__header">Rental Period: May 04, 2017 - Free return on May 08, 2017</div>
         <div class="cart__body">
           <div class="row cart-item" v-for="item in cart.items">
-            <div class="col-md-3 cart-item__image"></div>
+            <div class="col-md-3 cart-item__image">
+              <img :src="item.images[0].url" alt="">
+            </div>
             <div class="col-md-3 cart-item__info">
+              <div class="cart-item__designer">{{ item.designer }}</div>
               <div class="cart-item__name">{{ item.name }}</div>
               <div class="cart-item__remove">Remove</div>
             </div>
@@ -21,15 +24,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>10 UK</td>
-                  <td>£235</td>
-                  <td>£4.90</td>
-                </tr>
-                <tr>
-                  <td>10 UK</td>
-                  <td>£235</td>
-                  <td>£4.90</td>
+                <tr v-for="unit in item.units">
+                  <td>{{ unit.size }} {{ unit.length }}</td>
+                  <td v-if="unit.priority == 0">£{{ unit.price }}</td>
+                  <td v-if="unit.priority != 0" class="color-red is-bold">FREE</td>
+                  <td v-if="unit.priority == 0">£4.90</td>
+                  <td v-if="unit.priority != 0" class="color-red is-bold">FREE</td>
                 </tr>
               </tbody>
             </table>
@@ -75,7 +75,7 @@
             <div class="cart-price__footer__price">£234.80</div>
           </div>
         </div>
-        <div class="col-md-12 cart-next">NEXT <i class="fa fa-angle-right"></i></div> 
+        <div class="col-md-12 cart-next">NEXT <i class="fa fa-angle-right"></i></div>
       </div>
     </div>
     <div class="row">

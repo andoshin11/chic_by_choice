@@ -18,15 +18,27 @@
 }
 
 .cart-item {
-  height: 155px;
+  // height: 155px;
   .cart-item__info {
-    padding-top: 10px;
+    padding-top: 20px;
+  }
+  &__designer {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "Futura Extended";
+  }
+  &__image {
+    img {
+      width: 60%;
+      display: block;
+      margin: auto;
+    }
   }
   &__name {
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
     margin-bottom: 59px;
-    font-family: "Futura Extended";
+    color: #aeaeae;
   }
   &__remove {
     font-size: 12px;
