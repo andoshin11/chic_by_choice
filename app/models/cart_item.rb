@@ -1,5 +1,6 @@
 class CartItem < ApplicationRecord
   belongs_to :cart , inverse_of: :cart_items, optional: true
+  belongs_to :unit , inverse_of: :cart_items, optional: true
 
   validates :price, presence: true
   validates :cart_id, presence: true
