@@ -19,3 +19,4 @@ import 'babel-polyfill';
 
 import './items';
 import './carts';
+import './general';
