@@ -3,6 +3,8 @@ class Api::CartItemsController < Api::AbstractController
     primary_unit = params[:primaryUnit]
     secondary_unit = params[:secondaryUnit]
 
+    current_cart.cart_items.destroy_all
+
     unit_hash = {
       price: params[:price].to_f,
       period: params[:period],

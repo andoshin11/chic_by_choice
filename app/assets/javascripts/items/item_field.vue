@@ -47,16 +47,18 @@
             <option class="order__input__option" :value="unit.id" v-for="unit in item.units">{{ unit.size }} {{ unit.length }}</option>
           </select>
         </div>
-        <div class="order__size" v-if="!selectSeconday">
+        <div class="order__size" v-if="!selectSecondary">
           <span>Need Free Backup Size?</span>
-          <i class="fa fa-plus-circle" @click="selectSeconday = true"></i>
+          <i class="fa fa-plus-circle" @click="selectSecondary = true"></i>
         </div>
-        <div class="order__size" v-if="selectSeconday">
-          <select class="order__input where-size" v-model="secondaryUnitId">
-            <option value="null">Select your option</option>
-            <option class="order__input__option" :value="unit.id" v-for="unit in item.units">{{ unit.size }} {{ unit.length }}</option>
-          </select>
-        </div>
+        <transition name="selectSecondary">
+          <div class="order__size" v-if="selectSecondary">
+            <select class="order__input where-size" v-model="secondaryUnitId">
+              <option value="null">Select your option</option>
+              <option class="order__input__option" :value="unit.id" v-for="unit in item.units">{{ unit.size }} {{ unit.length }}</option>
+            </select>
+          </div>
+        </transition>
         <a href="" class="order__guide where-size">SIZE GUIDE</a>
         <div class="order__label">2. HIRE PERIOD</div>
         <div class="order__input where-period">
@@ -79,8 +81,11 @@
           <div class="order__info__delivery">Delivery Date : {{ order.deliveryDate }}</div>
           <div class="order__info__return">Return Date : {{ order.returnDate }}</div>
         </div>
-        <div class="order__submit" @click="addToCart()">
+        <div class="order__submit" @click="addToCart()" v-if="isCartEmpty">
           ADD TO CART <i class="fa fa-angle-right"></i>
+        </div>
+        <div class="order__submit" @click="addToCart()" v-if="!isCartEmpty">
+          SWAP DRESSES <i class="fa fa-angle-right"></i>
         </div>
       </div>
       <div class="dress-note">

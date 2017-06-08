@@ -40,12 +40,16 @@ export default {
       slideRight: false,
       primaryUnitId: null,
       secondaryUnitId: null,
-      selectSeconday: false,
+      selectSecondary: false,
+      isCartEmpty: true,
     };
   },
   methods: {
     async fetch() {
       try {
+        const { cart: cart } = await HTTP.get('/api/carts');
+        console.log(cart.items.length);
+        if(cart.items.length) this.isCartEmpty = false;
         const { item: item } = await HTTP.get(`/api/items/${gon.item_id}`);
         this.item = item;
       } catch (e) {

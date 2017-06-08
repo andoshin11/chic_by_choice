@@ -629,6 +629,13 @@ input[type="checkbox"] {
   }
 }
 
+.selectSecondary-enter-active, .selectSecondary-leave-active {
+  transition: opacity .5s
+}
+.selectSecondary-enter, .selectSecondary-leave-to {
+  opacity: 0
+}
+
 .datepicker {
   &__day {
     &.deliveryDate {
