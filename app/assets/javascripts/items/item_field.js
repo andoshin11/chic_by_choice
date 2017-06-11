@@ -1,5 +1,6 @@
 import HTTP from './../http';
-import datePicker from './../vue/date_picker.vue'
+import datePicker from './../vue/date_picker.vue';
+import sharedStore from './../shared_store';
 
 export default {
   components: {
@@ -48,7 +49,6 @@ export default {
     async fetch() {
       try {
         const { cart: cart } = await HTTP.get('/api/carts');
-        console.log(cart.items.length);
         if(cart.items.length) this.isCartEmpty = false;
         const { item: item } = await HTTP.get(`/api/items/${gon.item_id}`);
         this.item = item;
@@ -71,6 +71,8 @@ export default {
             designerName: this.item.designer.name,
             itemName: this.item.name,
           });
+          const { cart: cart } = await HTTP.get('/api/carts');
+          sharedStore.cart.items = cart.items;
           alert("Your order was added to the cart!");
         } else {
           alert("Please make sure your Primary Size and Event Date info is properly selected.");
