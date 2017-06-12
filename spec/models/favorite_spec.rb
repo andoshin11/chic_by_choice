@@ -17,9 +17,9 @@ RSpec.describe Favorite, type: :model do
     end
   end
 
-  describe '#unit_id' do
+  describe '#item_id' do
     context 'when nil' do
-      let(:favorite) { build(:favorite, unit_id: nil) }
+      let(:favorite) { build(:favorite, item_id: nil) }
 
       it { is_expected.to be_invalid }
     end

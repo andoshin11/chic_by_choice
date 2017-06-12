@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :favorite do
     favorite_list
-    unit
+    item
   end
 end

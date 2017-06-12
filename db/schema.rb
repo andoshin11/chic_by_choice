@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612002242) do
+ActiveRecord::Schema.define(version: 20170612114231) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id",                              null: false
@@ -61,12 +61,11 @@ ActiveRecord::Schema.define(version: 20170612002242) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer  "unit_id"
     t.integer  "favorite_list_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "item_id"
     t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
-    t.index ["unit_id"], name: "index_favorites_on_unit_id"
   end
 
   create_table "images", force: :cascade do |t|
