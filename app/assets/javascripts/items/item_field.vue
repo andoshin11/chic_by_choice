@@ -25,7 +25,7 @@
         <div class="dress-info__designer">{{ item.designer.name }}</div>
         <div class="dress-info__name">{{ item.name }}</div>
         <div class="dress-info__favorite">
-          <i class="fa fa-heart-o"></i>
+          <favorite :itemId="item.id"/>
         </div>
         <div class="dress-info__price">
           <span class="dress-info__price__hire">

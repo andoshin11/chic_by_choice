@@ -1,10 +1,12 @@
 import HTTP from './../http';
 import datePicker from './../vue/date_picker.vue';
 import sharedStore from './../shared_store';
+import favorite from './../vue/favorite.vue';
 
 export default {
   components: {
     datePicker,
+    favorite,
   },
   computed: {
     primaryUnit() {

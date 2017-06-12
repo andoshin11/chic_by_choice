@@ -12,7 +12,6 @@ export default {
     dataValid() {
       if (sharedStore.favoriteList.items.length >= 1){
         const matchedItems = sharedStore.favoriteList.items.filter(x => x.id == this.itemId);
-        console.log(matchedItems);
         return matchedItems.length >= 1 ? false : true;
       } else {
         return true;
