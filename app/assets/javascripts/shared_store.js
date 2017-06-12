@@ -1,6 +1,8 @@
 export default {
     cart: {
       items: [],
-      name: "test",
+    },
+    favoriteList: {
+      items: [],
     }
 };

@@ -1,4 +1,4 @@
-json.favorite_list do
+json.favoriteList do
   json.set! :id, @favorite_list.id
   json.items do
     json.array!(@favorite_list.favorites) do |favorite|
