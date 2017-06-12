@@ -1,8 +1,7 @@
 class Api::FavoritesController < Api::AbstractController
   def create
     item_id = params[:itemId]
-
-    puts item_id
+    Favorite.create(favorite_list_id: current_favorite_list.id, item_id: item_id);
 
     render json: { message: "Success!" }, status: 200
   rescue => e
