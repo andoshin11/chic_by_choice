@@ -184,7 +184,6 @@ input[type="checkbox"] {
   // transition: opacity 300ms linear;
   box-sizing: border-box;
   border: 1px solid transparent;
-  cursor: pointer;
   &__fav {
     position: absolute;
     right: 23px;
@@ -200,6 +199,7 @@ input[type="checkbox"] {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    cursor: pointer;
   }
   &__images {
     min-height: 466px;
@@ -224,6 +224,7 @@ input[type="checkbox"] {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    cursor: pointer;
     &:hover {
       color: $grey;
     }

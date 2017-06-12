@@ -1,9 +1,11 @@
 import HTTP from './../http';
-import datePicker from './date_picker.vue'
+import datePicker from './date_picker.vue';
+import favorite from './../vue/favorite.vue';
 
 export default {
   components: {
     datePicker,
+    favorite,
   },
   data() {
     return {

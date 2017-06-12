@@ -56,8 +56,8 @@
     </div>
     <div class="col-md-9">
       <div class="row">
-        <a class="dress col-md-4" v-for="item in items" :href="itemLink(item)">
-          <span class="dress__fav"><i class="fa fa-heart-o"></i></span>
+        <div class="dress col-md-4" v-for="item in items">
+          <favorite :itemId="item.id"/>
           <div class="dress__sizes">
             <div class="dress__sizes__size">6</div>
             <div class="dress__sizes__size">8</div>
@@ -66,13 +66,13 @@
           <div class="dress__images">
             <img :src="image.url" alt="" class="dress__images__image" :class="[ image.category == 1 ? 'main' : 'sub' ]" v-for="image in item.images">
           </div>
-          <a href="#" class="dress__designer is-bold">{{ item.designer.name }}</a>
-          <a href="#" class="dress__name">{{ item.name }}</a>
+          <a :href="itemLink(item)" class="dress__designer is-bold">{{ item.designer.name }}</a>
+          <a :href="itemLink(item)" class="dress__name">{{ item.name }}</a>
           <div class="dress__price is-bold">
             <span class="dress__price__hire">Hire £ {{ item.hirePrice }}</span>
             <span class="dress__price__retail">Hire £ {{ item.retailPrice }}</span>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
