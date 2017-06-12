@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'cart' => "carts#show"
 
   get 'cart/edit' => "carts#edit"
+  get 'wishlist' => "favorite_lists#show"
 
   resources :unit_images
   resources :units

@@ -332,7 +332,6 @@ input[type="checkbox"] {
 
 .dress-note {
 }
-
 .dress-thumbnails {
   list-style: none;
   margin-top: 20px;
@@ -665,6 +664,15 @@ input[type="checkbox"] {
       }
     }
   }
+}
+
+.section-header {
+  font-size: 18px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-bottom: 1px solid #d4d4d4;
+  margin-bottom: 10px;
 }
 
 .selectSecondary-enter-active, .selectSecondary-leave-active {

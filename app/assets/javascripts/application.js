@@ -20,3 +20,4 @@ import 'babel-polyfill';
 import './items';
 import './carts';
 import './general';
+import './favorite_lists';
