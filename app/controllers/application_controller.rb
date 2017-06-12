@@ -12,4 +12,14 @@ class ApplicationController < ActionController::Base
       cart
     end
   end
+
+  def current_favorite_list
+    begin
+      FavoriteList.find(session[:favorite_list_id])
+    rescue ActiveRecord::RecordNotFound
+      cart = FavoriteList.create(user_id: 1)
+      session[:favorite_list_id] = cart.id
+      cart
+    end
+  end
 end
