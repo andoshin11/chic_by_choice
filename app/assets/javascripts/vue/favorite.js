@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import HTTP from './../http';
 
 export default {
   props: {
@@ -15,9 +16,15 @@ export default {
   watch: {
   },
   methods: {
-    add() {
-      console.log("sup?");
-      console.log(this.itemId);
-    }
+    async add() {
+      try {
+        await HTTP.post('/api/favorites', {
+          itemId: this.itemId,
+        });
+        alert("Item added to your Favorite List");
+      } catch (e) {
+        console.error(e);
+      }
+    },
   },
 };

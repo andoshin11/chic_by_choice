@@ -32,5 +32,11 @@ Rails.application.routes.draw do
         post :create
       end
     end
+
+    resources :favorites, only: [] do
+      collection do
+        post :create
+      end
+    end
   end
 end
