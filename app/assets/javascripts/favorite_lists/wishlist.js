@@ -8,7 +8,7 @@ export default {
   },
   data() {
     return {
-      favoriteList: sharedStore.favoriteList,
+      sharedStore: sharedStore
     };
   },
   methods: {
@@ -16,7 +16,6 @@ export default {
       try {
         const { favoriteList: favoriteList } = await HTTP.get('/api/favorite_lists');
         sharedStore.favoriteList = favoriteList;
-        this.favoriteList = sharedStore.favoriteList;
       } catch (e) {
         console.error(e);
       }
@@ -26,9 +25,6 @@ export default {
     }
   },
   watch: {
-    sharedStore() {
-      this.favoriteList = sharedStore.favoriteList;
-    }
   },
   mounted() {
     this.fetch();

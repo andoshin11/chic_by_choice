@@ -387,9 +387,14 @@ input[type="checkbox"] {
     }
     &__wishlist {
       float: left;
+      font-family: 'Futura';
       color: white;
       margin-right: 20px;
-      font-family: 'Futura';
+      cursor: pointer;
+      &:hover {
+        opacity: .7;
+        color: white;
+      }
     }
   }
 }
@@ -676,10 +681,10 @@ input[type="checkbox"] {
 }
 
 .selectSecondary-enter-active, .selectSecondary-leave-active {
-  transition: opacity .5s
+  transition: opacity .5s;
 }
 .selectSecondary-enter, .selectSecondary-leave-to {
-  opacity: 0
+  opacity: 0;
 }
 
 .datepicker {
@@ -866,6 +871,13 @@ input[type="checkbox"] {
   position: fixed;
   width: 100%;
   z-index: 10;
+}
+
+.wishlist {
+  &__empty {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media only screen and (min-width: 400px){

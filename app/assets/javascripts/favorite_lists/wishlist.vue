@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
-    <div class="dress col-md-3" v-for="item in favoriteList.items">
+  <div class="container wishlist">
+    <div v-if="!sharedStore.favoriteList.items.length" class="wishlist__empty">You have no dresses in your Wishlist</div>
+    <div class="dress col-md-3" v-for="item in sharedStore.favoriteList.items">
       <favorite :itemId="item.id"/>
       <div class="dress__sizes">
         <div class="dress__sizes__size">6</div>

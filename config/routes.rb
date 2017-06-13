@@ -37,6 +37,9 @@ Rails.application.routes.draw do
     resources :favorites, only: [] do
       collection do
         post :create
+        delete :destroy
+      end
+      member do
       end
     end
 

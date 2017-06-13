@@ -11,10 +11,10 @@
           </div>
         </div>
         <div class="header-first__right">
-          <div class="header-first__right__wishlist">
+          <a href="/wishlist" class="header-first__right__wishlist">
             <i class="fa fa-heart-o"></i>
-            {{ favoriteList.items.length }}
-          </div>
+            {{ sharedStore.favoriteList.items.length }}
+          </a>
           <a href="/cart" class="header-first__right__cart">
             <i class="fa fa-shopping-bag"></i>
             {{ cart.items.length }}

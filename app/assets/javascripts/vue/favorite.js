@@ -9,38 +9,57 @@ export default {
     }
   },
   computed: {
-    dataValid() {
+    inList() {
       if (sharedStore.favoriteList.items.length >= 1){
         const matchedItems = sharedStore.favoriteList.items.filter(x => x.id == this.itemId);
-        return matchedItems.length >= 1 ? false : true;
+        return matchedItems.length ? true : false;
       } else {
-        return true;
+        return false;
       }
     }
   },
   data () {
     return {
+      sharedStore: sharedStore,
     };
   },
-  watch: {
-  },
   methods: {
+    async fetch() {
+      try {
+        const { favoriteList: favoriteList } = await HTTP.get('/api/favorite_lists');
+        sharedStore.favoriteList = favoriteList;
+      } catch (e) {
+        console.error(e);
+      }
+    },
     async add() {
       try {
-        if (this.dataValid) {
+        if (!this.inList) {
           await HTTP.post('/api/favorites', {
             itemId: this.itemId,
           });
-          const { favoriteList: favoriteList } = await HTTP.get('/api/favorite_lists');
-          sharedStore.favoriteList.items = favoriteList.items;
-          alert("Item added to your Favorite List");
+          this.fetch();
         } else {
-          alert("The Item is already in your Favorite List");
+          alert("The Item is already in your Wishlist");
         }
       } catch (e) {
         alert("Something went wrong!");
         console.error(e);
       }
     },
+    async remove() {
+      try {
+        await HTTP.delete('/api/favorites', {
+          itemId: this.itemId
+        });
+        this.fetch();
+      } catch (e) {
+        alert("Something went wrong!");
+        console.error(e);
+      }
+    },
+  },
+  mounted() {
+    this.fetch();
   },
 };

@@ -10,4 +10,17 @@ class Api::FavoritesController < Api::AbstractController
     puts e
     render json: { error: 'Something went wrong' }, status: 422
   end
+
+  def destroy
+
+    item_id = params[:item_id]
+    favorite = Favorite.where(favorite_list_id: current_favorite_list).find_by(item_id: item_id)
+    favorite.present? ? favorite.destroy : raise
+
+    render json: { message: "Success!" }, status: 200
+  rescue => e
+    puts e
+    render json: { error: 'Something went wrong' }, status: 422
+  end
+
 end
