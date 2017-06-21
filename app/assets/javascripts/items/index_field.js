@@ -1,14 +1,17 @@
 import HTTP from './../http';
 import datePicker from './date_picker.vue';
 import favorite from './../vue/favorite.vue';
+import vueSlider from 'vue-slider-component/src/vue2-slider.vue';
 
 export default {
   components: {
     datePicker,
     favorite,
+    vueSlider,
   },
   data() {
     return {
+      priceRange: [0, 500],
       items: [],
       expandColour: false,
       expandPrice: false,

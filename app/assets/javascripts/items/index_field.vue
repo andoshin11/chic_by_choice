@@ -8,28 +8,17 @@
     </div>
     <div class="col-md-3 index-sidebar">
       <div class="index-sidebar__header">Filter <span>Clear all</span></div>
-      <div class="filter for-date without-border">
-        <datePicker :period="4"/>
-      </div>
       <div class="filter for-price">
         <div class="filter__header is-bold" @click="toggleFilter(1)" :class="{active: openedFilter == 1}">Price<i class="fa fa-angle-down"></i></div>
         <div class="filter__body" :class="{active: openedFilter == 1}">
-          <div>
-            <input type="checkbox" value="0" v-model="priceFilter">
-            <label>under £60</label>
+          <div class="slider">
+            <div class="slider__header">
+              <span style="float: left;">Min</span>
+              <span style="float: right;">Max</span>
+            </div>
+            <vue-slider ref="slider" v-model="priceRange" :max="500" :tooltip="false" />
           </div>
-          <div>
-            <input type="checkbox" value="1" v-model="priceFilter">
-            <label>£61 - £120</label>
-          </div>
-          <div>
-            <input type="checkbox" value="2" v-model="priceFilter">
-            <label>£121 - £200</label>
-          </div>
-          <div>
-            <input type="checkbox" value="3" v-model="priceFilter">
-            <label>above £200</label>
-          </div>
+          <div class="price-range">£{{ priceRange[0] }} - £{{ priceRange[1] }}</div>
         </div>
       </div>
       <div class="filter for-length">
