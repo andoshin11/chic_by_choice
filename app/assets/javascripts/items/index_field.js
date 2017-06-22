@@ -9,6 +9,12 @@ export default {
     favorite,
     vueSlider,
   },
+  computed: {
+    filteredItems() {
+      let items = this.items;
+      return items.filter(x => this.priceRange[0] <= x.hirePrice).filter(x => x.hirePrice <= this.priceRange[1]);
+    }
+  },
   data() {
     return {
       priceRange: [0, 500],
@@ -42,7 +48,6 @@ export default {
       try {
         const { items: items } = await HTTP.get('/api/items');
         this.items = items;
-        console.log(items);
       } catch (e) {
         console.error(e);
       }

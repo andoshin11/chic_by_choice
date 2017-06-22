@@ -33,7 +33,7 @@
     </div>
     <div class="col-md-9">
       <div class="row">
-        <div class="dress col-md-4" v-for="item in items">
+        <div class="dress col-md-4" v-for="item in filteredItems">
           <favorite :itemId="item.id"/>
           <div class="dress__sizes">
             <div class="dress__sizes__size">6</div>
