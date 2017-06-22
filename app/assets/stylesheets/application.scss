@@ -57,7 +57,7 @@ input[type="checkbox"] {
 }
 /* Block */
 #body {
-  padding-top: 107px;
+  padding-top: 105px;
   font-family: 'Futura';
 }
 .is-bold {
@@ -342,6 +342,29 @@ input[type="checkbox"] {
     margin-left: calc(100% - 60px);
     img {
       width: 100%;
+    }
+  }
+}
+
+.dummy-banner {
+  width: 100%;
+  text-align: center;
+  height: 200px;
+  line-height: 200px;
+  color: white;
+  background-color: #d4cbc3;
+  font-size: 24px;
+  letter-spacing: 1px;
+  a {
+    cursor: pointer;
+    transition: .3s;
+    color: black;
+    &:visited {
+      color: black;
+    }
+    &:hover {
+      opacity: .7;
+      text-decoration: underline;
     }
   }
 }
