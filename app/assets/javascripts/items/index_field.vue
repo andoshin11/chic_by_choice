@@ -9,8 +9,8 @@
     <div class="col-md-3 index-sidebar">
       <div class="index-sidebar__header">Filter <span>Clear all</span></div>
       <div class="filter for-price">
-        <div class="filter__header is-bold" @click="toggleFilter(1)" :class="{active: openedFilter == 1}">Price<i class="fa fa-angle-down"></i></div>
-        <div class="filter__body" :class="{active: openedFilter == 1}">
+        <div class="filter__header is-bold" @click="toggleActive('for-price')">Price<i class="fa fa-angle-down"></i></div>
+        <div class="filter__body">
           <div class="slider">
             <div class="slider__header">
               <span style="float: left;">Min</span>
@@ -22,24 +22,12 @@
         </div>
       </div>
       <div class="filter for-length">
-        <div class="filter__header is-bold" @click="toggleFilter(2)" :class="{active: openedFilter == 2}">Length<i class="fa fa-angle-down"></i></div>
-        <div class="filter__body" :class="{active: openedFilter == 2}">
-          <div>
-            <input type="checkbox" value="0" v-model="lengthFilter">
-            <label>Floor length</label>
-          </div>
-          <div>
-            <input type="checkbox" value="1" v-model="lengthFilter">
-            <label>Knee length</label>
-          </div>
-          <div>
-            <input type="checkbox" value="2" v-model="lengthFilter">
-            <label>Mini</label>
-          </div>
-          <div>
-            <input type="checkbox" value="3" v-model="lengthFilter">
-            <label>Short</label>
-          </div>
+        <div class="filter__header is-bold" @click="toggleActive('for-length')">Length<i class="fa fa-angle-down"></i></div>
+        <div class="filter__body">
+          <div class="filter__length">Floor Lenght</div>
+          <div class="filter__length">Knee Length</div>
+          <div class="filter__length">Mini</div>
+          <div class="filter__length">Short</div>
         </div>
       </div>
     </div>

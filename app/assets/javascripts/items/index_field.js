@@ -13,12 +13,6 @@ export default {
     return {
       priceRange: [0, 500],
       items: [],
-      expandColour: false,
-      expandPrice: false,
-      expandLength: false,
-      expandSize: false,
-      expandTrends: false,
-      openedFilter: null,
       colourFilter: [],
       lengthFilter: [],
       trendsFilter: [],
@@ -53,12 +47,17 @@ export default {
         console.error(e);
       }
     },
-    toggleFilter(num) {
-      if (this.openedFilter == num) {
-        this.openedFilter = null;
-      } else {
-        this.openedFilter = num;
-      }
+    toggleActive(className) {
+      const target = document.getElementsByClassName(className)[0];
+      this.removeActive(target);
+      target.classList.toggle('active');
+    },
+    removeActive(exception) {
+      const active = document.getElementsByClassName("active");
+      if (!active) return;
+      Array.from(active).forEach(x => {
+        if(x != exception) x.classList.remove('active');
+      })
     },
     itemLink(item) {
       return `/items/${item.id}`
