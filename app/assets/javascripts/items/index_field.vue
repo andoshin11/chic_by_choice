@@ -2,9 +2,6 @@
   <div class="container">
     <div class="col-md-12 index-header">
       <div class="index-header__left">
-        <div class="index-header__sort">
-          SORT BY <select v-model="sortByKey"><option v-for="sort in sortBy" :value="sort.key">{{ sort.label }}</option></select>
-        </div>
       </div>
       <div class="index-header__right">
         <div class="index-header__pager index-pager">
@@ -19,7 +16,6 @@
       <div class="index-header__pagination"></div>
     </div>
     <div class="col-md-3 index-sidebar">
-      <div class="index-sidebar__header">Filter <span>Clear all</span></div>
       <div class="filter for-price">
         <div class="filter__header is-bold" @click="toggleActive('for-price')">Price<i class="fa fa-angle-down"></i></div>
         <div class="filter__body">
