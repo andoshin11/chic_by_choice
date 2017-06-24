@@ -13,15 +13,24 @@ export default {
     filteredItems() {
       let items = this.items;
       return items.filter(x => this.priceRange[0] <= x.hirePrice).filter(x => x.hirePrice <= this.priceRange[1]);
+    },
+    pageTotalNum() {
+      return Math.floor( this.filteredItems.length / this.viewNum ) + 1;
+    },
+    pages() {
+      let pages = [];
+      for (let i = 1; i <= this.pageTotalNum; i++) {
+        pages.push(i);
+      }
+      return pages;
     }
   },
   data() {
     return {
       priceRange: [0, 500],
+      viewNum: 14,
+      currentPage: 1,
       items: [],
-      colourFilter: [],
-      lengthFilter: [],
-      trendsFilter: [],
       sortBy: [
         {
           label: "FEATURED",

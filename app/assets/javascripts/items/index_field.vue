@@ -1,8 +1,20 @@
 <template>
   <div class="container">
     <div class="col-md-12 index-header">
-      <div class="index-header__sort">
-        SORT BY <select v-model="sortByKey"><option v-for="sort in sortBy" :value="sort.key">{{ sort.label }}</option></select>
+      <div class="index-header__left">
+        <div class="index-header__sort">
+          SORT BY <select v-model="sortByKey"><option v-for="sort in sortBy" :value="sort.key">{{ sort.label }}</option></select>
+        </div>
+      </div>
+      <div class="index-header__right">
+        <div class="index-header__pager index-pager">
+          <div class="index-pager__pages">
+            <div class="index-pager__pages__page" v-for="page in pages">{{ page }}</div>
+            <div class="index-pager__pages__total">of {{ pageTotalNum }}</div>
+          </div>
+          <div class="index-pager__nav is-bold">PREVIOUS</div>
+          <div class="index-pager__nav is-bold">NEXT</div>
+        </div>
       </div>
       <div class="index-header__pagination"></div>
     </div>
@@ -50,6 +62,79 @@
             <span class="dress__price__retail">Hire £ {{ item.retailPrice }}</span>
           </div>
         </div>
+
+        <div class="dress col-md-4" v-for="item in filteredItems">
+          <favorite :itemId="item.id"/>
+          <div class="dress__sizes">
+            <div class="dress__sizes__size">6</div>
+            <div class="dress__sizes__size">8</div>
+            <div class="dress__sizes__size">10</div>
+          </div>
+          <div class="dress__images">
+            <img :src="image.url" alt="" class="dress__images__image" :class="[ image.category == 1 ? 'main' : 'sub' ]" v-for="image in item.images">
+          </div>
+          <a :href="itemLink(item)" class="dress__designer is-bold">{{ item.designer.name }}</a>
+          <a :href="itemLink(item)" class="dress__name">{{ item.name }}</a>
+          <div class="dress__price is-bold">
+            <span class="dress__price__hire">Hire £ {{ item.hirePrice }}</span>
+            <span class="dress__price__retail">Hire £ {{ item.retailPrice }}</span>
+          </div>
+        </div>
+
+        <div class="dress col-md-4" v-for="item in filteredItems">
+          <favorite :itemId="item.id"/>
+          <div class="dress__sizes">
+            <div class="dress__sizes__size">6</div>
+            <div class="dress__sizes__size">8</div>
+            <div class="dress__sizes__size">10</div>
+          </div>
+          <div class="dress__images">
+            <img :src="image.url" alt="" class="dress__images__image" :class="[ image.category == 1 ? 'main' : 'sub' ]" v-for="image in item.images">
+          </div>
+          <a :href="itemLink(item)" class="dress__designer is-bold">{{ item.designer.name }}</a>
+          <a :href="itemLink(item)" class="dress__name">{{ item.name }}</a>
+          <div class="dress__price is-bold">
+            <span class="dress__price__hire">Hire £ {{ item.hirePrice }}</span>
+            <span class="dress__price__retail">Hire £ {{ item.retailPrice }}</span>
+          </div>
+        </div>
+
+        <div class="dress col-md-4" v-for="item in filteredItems">
+          <favorite :itemId="item.id"/>
+          <div class="dress__sizes">
+            <div class="dress__sizes__size">6</div>
+            <div class="dress__sizes__size">8</div>
+            <div class="dress__sizes__size">10</div>
+          </div>
+          <div class="dress__images">
+            <img :src="image.url" alt="" class="dress__images__image" :class="[ image.category == 1 ? 'main' : 'sub' ]" v-for="image in item.images">
+          </div>
+          <a :href="itemLink(item)" class="dress__designer is-bold">{{ item.designer.name }}</a>
+          <a :href="itemLink(item)" class="dress__name">{{ item.name }}</a>
+          <div class="dress__price is-bold">
+            <span class="dress__price__hire">Hire £ {{ item.hirePrice }}</span>
+            <span class="dress__price__retail">Hire £ {{ item.retailPrice }}</span>
+          </div>
+        </div>
+
+        <div class="dress col-md-4" v-for="item in filteredItems">
+          <favorite :itemId="item.id"/>
+          <div class="dress__sizes">
+            <div class="dress__sizes__size">6</div>
+            <div class="dress__sizes__size">8</div>
+            <div class="dress__sizes__size">10</div>
+          </div>
+          <div class="dress__images">
+            <img :src="image.url" alt="" class="dress__images__image" :class="[ image.category == 1 ? 'main' : 'sub' ]" v-for="image in item.images">
+          </div>
+          <a :href="itemLink(item)" class="dress__designer is-bold">{{ item.designer.name }}</a>
+          <a :href="itemLink(item)" class="dress__name">{{ item.name }}</a>
+          <div class="dress__price is-bold">
+            <span class="dress__price__hire">Hire £ {{ item.hirePrice }}</span>
+            <span class="dress__price__retail">Hire £ {{ item.retailPrice }}</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
