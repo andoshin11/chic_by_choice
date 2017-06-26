@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :cart_items, only: [] do
       collection do
         post :create
+        delete :destroy
       end
     end
 

@@ -30,4 +30,14 @@ class Api::CartItemsController < Api::AbstractController
     puts e
     render json: { error: 'Something went wrong' }, status: 422
   end
+
+
+  def destroy
+    current_cart.cart_items.destroy_all
+
+    render json: { message: "Success!" }, status: 200
+  rescue => e
+    puts e
+    render json: { error: 'Something went wrong' }, status: 422
+  end
 end

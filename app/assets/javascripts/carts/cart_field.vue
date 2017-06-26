@@ -13,7 +13,7 @@
             <div class="col-md-3 cart-item__info">
               <div class="cart-item__designer">{{ item.designer }}</div>
               <div class="cart-item__name">{{ item.name }}</div>
-              <div class="cart-item__remove">Remove</div>
+              <div class="cart-item__remove" @click="removeFromCart()">Remove</div>
             </div>
             <table class="col-md-6 cart-item__status">
               <thead>
