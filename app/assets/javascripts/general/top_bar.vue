@@ -1,6 +1,6 @@
 <template>
   <section class="p-top-bar">
-    <div class="header-first">
+    <div class="header-first hide-sm">
       <div class="container">
         <div class="header-first__left">
           <div class="call-us">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="header-second">
+    <div class="header-second hide-sm">
       <div class="container">
         <nav>
           <a href="/" class="logo-container"></a>
@@ -50,6 +50,19 @@
             </div>
           </div>
         </nav>
+      </div>
+    </div>
+    <div class="hide-lg header-mobile">
+      <a href="/" class="header-mobile__logo"><img src="/logo.png" alt=""></a>
+      <div class="header-mobile__right">
+        <a href="/wishlist" class="header-mobile__wishlist">
+          <i class="fa fa-heart-o"></i>
+          {{ sharedStore.favoriteList.items.length }}
+        </a>
+        <a href="/cart" class="header-mobile__cart">
+          <i class="fa fa-shopping-bag"></i>
+          {{ cart.items.length }}
+        </a>
       </div>
     </div>
   </section>

@@ -937,25 +937,68 @@ input[type="checkbox"] {
     text-align: center;
   }
 }
-
-@media only screen and (min-width: 400px){
-  .dress-name.designer-name {
-    font-size: 13px;
-    width: 150px;
-  }
+/* pc */
+@media screen and (min-width: 481px) {
+	.hide-lg {
+		display: none;
+	}
 }
 
-@media only screen and (min-width: 767px){
-  .p-top-bar {
-    .mobile-top-bar {
-      display: none;
+
+/* smartPhone */
+@media screen and (max-width: 480px) {
+  .hide-sm {
+    display: none;
+  }
+  #body {
+    padding-top: 40px;
+  }
+  .header-mobile {
+    height: 40px;
+    background-color: $white;
+    &__logo {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      display: block;
+      img {
+        max-height: 50%;
+        max-width: 100%;
+        display: block;
+        margin: auto;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
     }
-  }
-}
-
-@media only screen and (min-width: 1200px){
-  .dress-name.designer-name {
-    font-size: 14px;
-    width: 180px;
+    &__right {
+      float: right;
+      position: absolute;
+      right: 0%;
+      top: 13px;
+    }
+    &__cart {
+      float: left;
+      font-family: 'Futura';
+      color: $black;
+      margin-right: 20px;
+      cursor: pointer;
+      &:hover {
+        opacity: .7;
+        color: $black;
+      }
+    }
+    &__wishlist {
+      float: left;
+      font-family: 'Futura';
+      color: $black;
+      margin-right: 20px;
+      cursor: pointer;
+      &:hover {
+        opacity: .7;
+        color: $black;
+      }
+    }
   }
 }
