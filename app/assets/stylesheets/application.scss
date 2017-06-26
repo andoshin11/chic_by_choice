@@ -953,6 +953,11 @@ input[type="checkbox"] {
   #body {
     padding-top: 40px;
   }
+  .carousel {
+    &__nav {
+      line-height: 620px;
+    }
+  }
   .dress {
     &__designer {
       font-size: 14px;
@@ -966,6 +971,39 @@ input[type="checkbox"] {
     &__price {
       &__hire {
         width: 46%;
+      }
+    }
+  }
+  .dress-info {
+    &__designer {
+      font-size: 16px;
+      text-align: center;
+    }
+    &__name {
+      font-size: 14px;
+      text-align: center;
+    }
+    &__price {
+      text-align: center;
+      width: 100%;
+      margin: auto;
+      &__hire {
+        font-size: 17px;
+      }
+      &__retail {
+        text-decoration: line-through;
+        font-size: 13px;
+      }
+      span {
+        display: block;
+      }
+    }
+    &.on-mobile {
+      width: 70%;
+      margin: auto;
+      padding-top: 20px;
+      .dress-info__favorite {
+        right: -20%;
       }
     }
   }
@@ -1021,5 +1059,8 @@ input[type="checkbox"] {
         color: $black;
       }
     }
+  }
+  .padding-r-60 {
+    padding-right: 15px;
   }
 }

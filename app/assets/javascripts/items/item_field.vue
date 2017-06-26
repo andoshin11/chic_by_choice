@@ -1,13 +1,23 @@
 <template>
   <div class="row">
-    <section class="col-md-2">
+    <section class="col-md-2 hide-sm">
       <ul class="dress-thumbnails">
         <li class="dress-thumbnails__thumbnail" v-for="image in item.images">
           <img :src="image.url" alt="" @click="toggleSlide(image)">
         </li>
       </ul>
     </section>
-    <section class="col-md-6">
+
+    <section class="col-md-4 col-xs-12 hide-lg">
+      <div class="dress-info on-mobile">
+        <div class="dress-info__designer">{{ item.designer.name }}</div>
+        <div class="dress-info__name">{{ item.name }}</div>
+        <div class="dress-info__favorite">
+          <favorite :itemId="item.id"/>
+        </div>
+      </div>
+    </section>
+    <section class="col-md-6 col-xs-12">
       <div class="carousel">
         <div class="carousel__nav" @click="slideRight = !slideRight"><i class="fa fa-angle-left"></i></div>
         <div class="carousel__body">
@@ -20,19 +30,27 @@
         <div class="carousel__nav" @click="slideRight = !slideRight"><i class="fa fa-angle-right"></i></div>
       </div>
     </section>
-    <section class="col-md-4">
+    <section class="col-md-4 col-xs-12">
       <div class="dress-info">
-        <div class="dress-info__designer">{{ item.designer.name }}</div>
-        <div class="dress-info__name">{{ item.name }}</div>
-        <div class="dress-info__favorite">
+        <div class="dress-info__designer hide-sm">{{ item.designer.name }}</div>
+        <div class="dress-info__name hide-sm">{{ item.name }}</div>
+        <div class="dress-info__favorite hide-sm">
           <favorite :itemId="item.id"/>
         </div>
-        <div class="dress-info__price">
+        <div class="dress-info__price hide-sm">
           <span class="dress-info__price__hire">
             HIRE £{{ item.price.hirePrice }}
           </span>
           <span class="dress-info__price__retail">
             RETAIl £{{ item.price.retailPrice }}
+          </span>
+        </div>
+        <div class="dress-info__price hide-lg">
+          <span class="dress-info__price__hire">
+            Rental £{{ item.price.hirePrice }}
+          </span>
+          <span class="dress-info__price__retail">
+            Retail £{{ item.price.retailPrice }}
           </span>
         </div>
         <div class="dress-info__label">
