@@ -10,12 +10,15 @@
   %body{'data-controller': controller_path, 'data-action': action_name}
     = render 'layouts/header'
     %section#body
-      .dummy-banner.is-bold
-        This is a dummy website made by
+      .dummy-banner.is-bold.hide-sm
+        This is a fake website made by
         %a{href: "https://andoshin11.github.io", target: "_blank"}Shin Ando.
         Check out
         %a{href: "https://chic-by-choice.com/", target: "_blank"} Chic by Choice
         for the real content.
+      .dummy-banner.is-bold.hide-lg
+        This is a fake website made by
+        %a{href: "https://andoshin11.github.io", target: "_blank"}Shin Ando.
       = yield
   = include_gon
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

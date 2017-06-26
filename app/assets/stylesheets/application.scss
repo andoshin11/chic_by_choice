@@ -953,6 +953,27 @@ input[type="checkbox"] {
   #body {
     padding-top: 40px;
   }
+  .dress {
+    &__designer {
+      font-size: 14px;
+    }
+    &__images {
+      min-height: 200px;
+    }
+    &__name {
+      font-size: 12px;
+    }
+    &__price {
+      &__hire {
+        width: 46%;
+      }
+    }
+  }
+  .dummy-banner {
+    font-size: 15px;
+    height: 100px;
+    line-height: 100px;
+  }
   .header-mobile {
     height: 40px;
     background-color: $white;
