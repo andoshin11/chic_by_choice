@@ -2,20 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 cart-title">SHOPPING BAG</div>
-      <div class="col-md-4 cart-timer">Only {{ calcTime }} minutes left</div>
+      <div class="col-md-4 cart-timer hide-sm">Only {{ calcTime }} minutes left</div>
       <div class="col-md-8 cart">
-        <div class="cart__header">Rental Period: May 04, 2017 - Free return on May 08, 2017</div>
+        <div class="cart__header">Rental Period: {{ deliveryDate }} - Free return on {{ returnDate }}</div>
         <div class="cart__body">
           <div class="row cart-item" v-for="item in cart.items">
-            <div class="col-md-3 cart-item__image">
+            <div class="col-md-3 col-xs-5 cart-item__image">
               <img :src="item.images[0].url" alt="">
             </div>
             <div class="col-md-3 cart-item__info">
               <div class="cart-item__designer">{{ item.designer }}</div>
               <div class="cart-item__name">{{ item.name }}</div>
+              <div class="hide-lg cart-item__status">Sizes: <span v-for="unit in item.units">{{ unit.size }}</span></div>
               <div class="cart-item__remove" @click="removeFromCart()">Remove</div>
             </div>
-            <table class="col-md-6 cart-item__status">
+            <table class="col-md-6 cart-item__status hide-sm">
               <thead>
                 <tr>
                   <th>SIZE</th>

@@ -1,5 +1,6 @@
 import HTTP from './../http';
 import sharedStore from './../shared_store';
+import moment from 'moment';
 
 export default {
   computed: {
@@ -13,6 +14,22 @@ export default {
         return min + ":" + sec;
       } else {
         return "00:00";
+      }
+    },
+    returnDate() {
+      if(this.cart.items.length) {
+        const date = this.cart.items[0].units[0].returnDate
+        return moment(date).format("MMM D, YYYY")
+      } else {
+        return null
+      }
+    },
+    deliveryDate() {
+      if(this.cart.items.length) {
+        const date = this.cart.items[0].units[0].deliveryDate
+        return moment(date).format("MMM D, YYYY")
+      } else {
+        return null
       }
     }
   },

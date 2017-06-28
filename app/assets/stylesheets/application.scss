@@ -958,6 +958,23 @@ input[type="checkbox"] {
       line-height: 620px;
     }
   }
+  .cart {
+    margin-bottom: 20px;
+    &__body {
+      border: none;
+    }
+  }
+  .cart-title {
+    padding-top: 30px;
+  }
+  .cart-item {
+    &__info {
+      padding: 0;
+    }
+    &__name {
+      margin-bottom: 10px;
+    }
+  }
   .dress {
     &__designer {
       font-size: 14px;
