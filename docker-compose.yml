@@ -10,18 +10,13 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./certs:/etc/nginx/certs:ro
     restart: always
-    logging:
-      options:
-        max-size: 5m
-        max-file: "10"
   web:
     container_name: rails
-    build: docker/rails
-    command: bundle exec rails s -p 3000
+    build: .
     ports:
       - "3000:3000"
     environment:
-      RAILS_ENV: development
+      RAILS_ENV: production
       MYSQL_ROOT_PASSWORD: "root"
       DATABASE_URL: 'mysql2://root:root@mysql:3306'
     depends_on:
