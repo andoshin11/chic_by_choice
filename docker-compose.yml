@@ -1,15 +1,5 @@
 version: "2"
 services:
-  proxy:
-    image: jwilder/nginx-proxy
-    container_name: proxy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./certs:/etc/nginx/certs:ro
-    restart: always
   web:
     container_name: rails
     build: .
@@ -17,20 +7,5 @@ services:
       - "3000:3000"
     environment:
       RAILS_ENV: production
-      MYSQL_ROOT_PASSWORD: "root"
-      DATABASE_URL: 'mysql2://root:root@mysql:3306'
-    depends_on:
-      - mysql
     volumes:
       - ./:/myapp
-    links:
-      - mysql
-  mysql:
-    container_name: mysql
-    image: mysql:5.6.32
-    environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-    ports:
-      - '3306:3306'
-    volumes:
-      - ./docker/mysql:/var/lib/mysql
