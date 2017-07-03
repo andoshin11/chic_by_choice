@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170612114231) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id",                              null: false
     t.integer  "unit_id",                              null: false
@@ -23,21 +26,21 @@ ActiveRecord::Schema.define(version: 20170612114231) do
     t.string   "length"
     t.integer  "priority",      default: 0,            null: false
     t.integer  "period",        default: 4,            null: false
-    t.date     "event_date",    default: '2017-06-05', null: false
-    t.date     "delivery_date", default: '2017-06-05', null: false
-    t.date     "return_date",   default: '2017-06-05', null: false
+    t.date     "event_date",    default: '2017-07-03', null: false
+    t.date     "delivery_date", default: '2017-07-03', null: false
+    t.date     "return_date",   default: '2017-07-03', null: false
     t.string   "designer_name"
     t.string   "item_name"
-    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
-    t.index ["currency_id"], name: "index_cart_items_on_currency_id"
-    t.index ["unit_id"], name: "index_cart_items_on_unit_id"
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
+    t.index ["currency_id"], name: "index_cart_items_on_currency_id", using: :btree
+    t.index ["unit_id"], name: "index_cart_items_on_unit_id", using: :btree
   end
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_carts_on_user_id"
+    t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
   end
 
   create_table "currencies", force: :cascade do |t|
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170612114231) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_favorite_lists_on_user_id"
+    t.index ["user_id"], name: "index_favorite_lists_on_user_id", using: :btree
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170612114231) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "item_id"
-    t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id"
+    t.index ["favorite_list_id"], name: "index_favorites_on_favorite_list_id", using: :btree
   end
 
   create_table "images", force: :cascade do |t|
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170612114231) do
     t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_images_on_item_id"
+    t.index ["item_id"], name: "index_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
@@ -87,8 +90,8 @@ ActiveRecord::Schema.define(version: 20170612114231) do
     t.float    "hire_price"
     t.float    "retail_price"
     t.integer  "designer_id"
-    t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["designer_id"], name: "index_items_on_designer_id"
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["designer_id"], name: "index_items_on_designer_id", using: :btree
   end
 
   create_table "unit_images", force: :cascade do |t|
@@ -97,7 +100,7 @@ ActiveRecord::Schema.define(version: 20170612114231) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["unit_id"], name: "index_unit_images_on_unit_id"
+    t.index ["unit_id"], name: "index_unit_images_on_unit_id", using: :btree
   end
 
   create_table "units", force: :cascade do |t|
@@ -106,7 +109,7 @@ ActiveRecord::Schema.define(version: 20170612114231) do
     t.datetime "updated_at", null: false
     t.string   "size",       null: false
     t.string   "length",     null: false
-    t.index ["item_id"], name: "index_units_on_item_id"
+    t.index ["item_id"], name: "index_units_on_item_id", using: :btree
   end
 
 end

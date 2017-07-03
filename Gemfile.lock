@@ -134,6 +134,7 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
+    pg (0.21.0)
     public_suffix (2.0.5)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -264,6 +265,7 @@ DEPENDENCIES
   launchy (~> 2.3.0)
   listen (~> 3.0.5)
   mysql2
+  pg
   rails (~> 5.0.2)
   rails-controller-testing
   rspec-rails (~> 3.5.2)
