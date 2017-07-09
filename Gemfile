@@ -51,6 +51,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5.2'
   gem 'factory_girl_rails', '~> 4.7.0'
   gem 'rails-controller-testing'
+  gem 'capistrano', '~> 3.5'
 end
 
 group :test do
