@@ -46,3 +46,6 @@ development:
 test:
   <<: *default
   database: cbc_test
+production:
+  <<: :default
+  database: cbc

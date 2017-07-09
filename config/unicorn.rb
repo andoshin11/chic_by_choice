@@ -1,23 +1,18 @@
 app_path = '/var/www/chic_by_choice'
 
-worker_processes 2
-
-listen File.expand_path('shared/tmp/sockets/unicorn.sock', app_path), backlog: 64
-pid File.expand_path('shared/tmp/pids/unicorn.pid', app_path)
-
-working_directory "#{app_path}/current"
-
-stderr_path File.expand_path('shared/log/unicorn_stderr.log', app_path)
-stdout_path File.expand_path('shared/log/unicorn_stdout.log', app_path)
-
+worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
+timeout 15
 preload_app true
-timeout 30
 
-before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "#{app_path}/current/Gemfile"
-end
+listen '/root/chic_by_choice/tmp/unicorn.sock'
+pid    '/root/chic_by_choice/tmp/unicorn.pid'
 
 before_fork do |server, worker|
+  Signal.trap 'TERM' do
+    puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
+    Process.kill 'QUIT', Process.pid
+  end
+
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
 
   old_pid = "#{server.config[:pid]}.oldbin"
@@ -33,5 +28,13 @@ before_fork do |server, worker|
 end
 
 after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+  Signal.trap 'TERM' do
+    puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
+  end
+
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.establish_connection
 end
+
+stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
