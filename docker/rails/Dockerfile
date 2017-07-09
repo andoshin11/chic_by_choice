@@ -1,4 +1,4 @@
-FROM andoshin11/rails_base:1.0
+FROM andoshin11/rails_base:1.1
 RUN apt-get update -qq && \
     apt-get install -y libpq-dev \
                        mysql-client \
@@ -12,6 +12,4 @@ ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 ADD . /app
-RUN npm install
-
-EXPOSE 3000
+RUN yarn
