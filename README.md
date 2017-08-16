@@ -1,24 +1,8 @@
-# README
+# What's this?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a dummy website of [Chic by Choice](https://chic-by-choice.com/en).
 
-Things you may want to cover:
+# Where can I see the website?
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Boom!
+https://cbc-dummy.herokuapp.com/
